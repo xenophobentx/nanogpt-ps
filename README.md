@@ -4,7 +4,7 @@
 
 A character-level GPT written in PowerShell based on Nanogpt. The transformer is in the script. There is a chat window in the terminal.
 
-Why? It works with just pure PowerShell no phyton nothing.
+Why? It works with just pure PowerShell no python nothing.
 
  Every matrix multiply is a loop you can put a breakpoint on. And one command in the chat, `/step`, turns that into something you can watch: it produces the next character and prints what happened on the way there.
 
