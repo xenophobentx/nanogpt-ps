@@ -2,9 +2,11 @@
 
 # psgpt
 
-A character-level GPT written in PowerShell, with nothing underneath it. The transformer is in the script: token and position embeddings, multi-head causal self-attention, an MLP with GELU, LayerNorm, the output head. So is the training loop. Backpropagation is written out by hand and checked against numerical gradients to about 1e-9, the optimizer is Adam with a cosine learning-rate schedule, and mini-batches run in parallel across your CPU cores. Generation uses a KV-cache. There is a chat window in the terminal.
+A character-level GPT written in PowerShell based on Nanogpt. The transformer is in the script. There is a chat window in the terminal.
 
-The reason to care is that you can read all of it. Every matrix multiply is a loop you can put a breakpoint on. And one command in the chat, `/step`, turns that into something you can watch: it produces the next character and prints what happened on the way there.
+Why? It works with just pure PowerShell no phyton nothing.
+
+ Every matrix multiply is a loop you can put a breakpoint on. And one command in the chat, `/step`, turns that into something you can watch: it produces the next character and prints what happened on the way there.
 
 ![The nanoGPT-ps chat window: the model header, then a Shakespeare-style continuation](docs/chat.png)
 
