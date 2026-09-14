@@ -6,6 +6,10 @@ A character-level GPT written in PowerShell, with nothing underneath it. The tra
 
 The reason to care is that you can read all of it. Every matrix multiply is a loop you can put a breakpoint on. And one command in the chat, `/step`, turns that into something you can watch: it produces the next character and prints what happened on the way there.
 
+![The nanoGPT-ps chat window: the model header, then a Shakespeare-style continuation](docs/chat.png)
+
+*The chat window: the model header, then a Shakespeare-style continuation.*
+
 ## What you can do with it
 
 Chat. Type a line and the model continues it in the style it was trained on:

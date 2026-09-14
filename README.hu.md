@@ -6,6 +6,10 @@ Karakterszintű GPT, tisztán PowerShellben, alatta semmi. A transformer benne v
 
 Azért érdekes, mert az egészet el lehet olvasni. Minden mátrixszorzás egy ciklus, amire töréspontot lehet tenni. És van a chatben egy parancs, a `/step`, amivel ezt nézni is lehet: kiadja a következő karaktert, és közben kiírja, mi történt útközben.
 
+![A nanoGPT-ps chatablak: a modell fejléce, majd egy Shakespeare-stílusú folytatás](docs/chat.png)
+
+*A chatablak: a modell fejléce, majd egy Shakespeare-stílusú folytatás.*
+
 ## Mire jó
 
 Beszélgetni. Beírsz egy sort, a modell folytatja abban a stílusban, amin tanult:
