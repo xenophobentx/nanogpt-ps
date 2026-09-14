@@ -1,0 +1,6 @@
+# Trained weights (~57 MB each) ship as GitHub Release assets, not in git.
+# Download nanogpt-shakespeare-weights.json and nanogpt-orban-weights.json
+# into en/ or hu/ (whichever edition you use).
+nanogpt-*-weights*.json
+*.json.tmp
+*.log
