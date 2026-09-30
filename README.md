@@ -10,7 +10,7 @@ Every matrix multiply is a loop you can put a breakpoint on. The chat also has a
 
 ![The nanoGPT-ps chat window: the model header, then a Shakespeare-style continuation](docs/chat.png)
 
-*The chat window: the model header, then a Shakespeare-style continuation.*
+
 
 ## What you can do with it
 
