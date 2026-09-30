@@ -5,8 +5,8 @@ every known character a score. We turn the scores into probabilities,
 select a character, and append it to the text.
 
 You need PowerShell 7. Run the commands from the folder containing
-`nanogpt-ps.ps1`. From the full repository root, first run
-`Set-Location .\dist\en`. For a standalone package, start in its own folder.
+`nanogpt-ps.ps1`. If you are at the repository root, first run
+`Set-Location .\en`.
 
 ## 1. Generate a short continuation
 
@@ -61,7 +61,9 @@ not every intermediate array.
 
 ## 3. Three short experiments
 
-**Temperature: same input, different distribution.** Enter:
+### Temperature: same input, different distribution
+
+Enter:
 
 ```text
 /reset
@@ -76,9 +78,11 @@ not every intermediate array.
 With empty context, `/step` starts with a newline if the model knows it,
 or character id 0 otherwise. Both parts start from the same input.
 At lower temperature, larger probabilities dominate more strongly.
-The selected character need not change for the distribution difference to be visible.
+Even if the same character wins, the difference shows in the distribution.
 
-**Top-k: how many candidates remain eligible?** Enter:
+### Top-k: how many candidates remain eligible?
+
+Enter:
 
 ```text
 /reset
@@ -95,7 +99,9 @@ Example: a=50%, b=30%, c=20%. With top-k=2, c is removed. The remaining
 chances are 50/80=62.5% for a and 30/80=37.5% for b. Top-5 limits the
 rows displayed; top-k limits which candidates can be selected.
 
-**Context: does the preceding text matter?** In the same session:
+### Context: does the preceding text matter?
+
+In the same session:
 
 ```text
 /reset

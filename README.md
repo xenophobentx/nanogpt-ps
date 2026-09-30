@@ -2,11 +2,11 @@
 
 # psgpt
 
-A character-level GPT written in PowerShell based on Nanogpt. The transformer is in the script. There is a chat window in the terminal.
+A character-level GPT in PowerShell, based on nanoGPT. The whole transformer is in the script, and there is a chat window in the terminal.
 
-Why? It works with just pure PowerShell no python nothing.
+Why? Because it runs on plain PowerShell. No Python, nothing else.
 
- Every matrix multiply is a loop you can put a breakpoint on. And one command in the chat, `/step`, turns that into something you can watch: it produces the next character and prints what happened on the way there.
+Every matrix multiply is a loop you can put a breakpoint on. The chat also has a `/step` command that generates the next character and prints what happened along the way.
 
 ![The nanoGPT-ps chat window: the model header, then a Shakespeare-style continuation](docs/chat.png)
 
@@ -23,9 +23,9 @@ Chat. Type a line and the model continues it in the style it was trained on:
     For thou art thou only to cheek the corruption,
 ```
 
-Watch it decide. `/step` generates one character and shows the pipeline for that character: the token plus position embedding, which earlier characters each layer's attention weighted most, then the final logits, the softmax over them, the five most likely characters with their probabilities, and the one that was actually sampled. `/step 5` does five in a row. You are looking at the model choose a letter.
+Watch it decide. `/step` generates one character and shows the pipeline for that character: the token plus position embedding, which earlier characters each layer's attention weighted most, then the final logits, the softmax over them, the five most likely characters with their probabilities, and the one that was actually sampled. `/step 5` does five in a row.
 
-Train. `nanogpt-ps.ps1 -Train` runs the forward pass, the hand-written backward pass and Adam over a text file of your choosing (`-CorpusFile`), checkpointing to a weights file as it goes. `-GradCheck` runs the numerical gradient check on a tiny model, which is how you convince yourself the backprop is right.
+Train. `nanogpt-ps.ps1 -Train` runs the forward pass, the hand-written backward pass and Adam over a text file of your choosing (`-CorpusFile`), and saves checkpoints to a weights file as it goes. `-GradCheck` runs a numerical gradient check on a tiny model, so you can see for yourself that the backprop is right.
 
 ## Quickstart
 
@@ -50,23 +50,23 @@ Both have 6 layers, a width of 192, about 2.7 million parameters, and a context 
 
 `shakespeare` was trained on Tiny Shakespeare, roughly 1 MB of the plays. It writes English in the shape of a script: speaker names in capitals, line breaks where the verse would put them, words that are mostly real and sometimes nearly so.
 
-`orban` was trained on Hungarian political speeches. Its output is a style simulation: invented sentences with the rhythm and vocabulary of the source. Nothing it says is a quotation. The model has no record of any actual speech and no way to reproduce one; it emits plausible Hungarian one character at a time. The chat window labels the output as a simulation for exactly this reason, and that is how it should be read.
+`orban` was trained on Hungarian political speeches. Its output is a style simulation: made-up sentences with the rhythm and vocabulary of the source, generated one character at a time. None of it is a quote, and the model has no way to reproduce an actual speech. The chat window labels the output as a simulation.
 
 ## Speed and scope
 
-It is slow. Character-level, interpreted, PowerShell: about 36 characters a second on a laptop, around 84 on a faster desktop with the native library loaded. A paragraph takes a while to appear. Training a model the size of the bundled ones, on CPU, is a multi-day job.
+It is slow. A character-level model interpreted in PowerShell does about 36 characters a second on a laptop, and around 84 on a faster desktop with the native library loaded. A paragraph takes a while to appear. Training a model the size of the bundled ones on CPU takes several days.
 
-It is also small. 2.7 million parameters and 128 characters of context are enough to learn spelling, punctuation and the cadence of a text, and little beyond that. It will not answer questions. Treat it as a GPT you can read end to end, with the generated text as evidence that the reading was correct.
+It is also small. 2.7 million parameters and 128 characters of context are enough to learn spelling, punctuation and the cadence of a text, and not much more. It will not answer questions. The point is that you can read the whole thing, end to end.
 
 ## Requirements
 
 PowerShell 7 on Windows, Linux or macOS. No Python, no ML framework, no GPU.
 
-`lib/MathNet.Numerics.dll` ships alongside the scripts and is optional. With it present, generation runs about 8x faster. Without it, everything still works on the pure-PowerShell path.
+`lib/MathNet.Numerics.dll` ships alongside the scripts and is optional. With it, generation runs about 8x faster. Without it, everything still works on the pure PowerShell path.
 
 ## en/ and hu/
 
-The repo carries two copies of the code: `en/` with English comments, `hu/` with Hungarian ones. The code is identical; pick the folder whose comments you would rather read, and put the weight files there.
+The repo has two copies of the code: `en/` with English comments, `hu/` with Hungarian ones. The code is identical. Pick the folder whose comments you'd rather read, and put the weight files there.
 
 ## License
 

@@ -1,6 +1,5 @@
 # Open the English text continuation interface with a trained model.
-# In the repository this launcher is chat-en.ps1; packages ship it as chat.ps1.
-# Package examples:
+# Examples:
 #   .\chat.ps1 -MaxTokens 1
 #   .\chat.ps1 -WeightsFile .\my-weights.json
 # After entering text, use /step 1 to inspect the next character selection.
