@@ -10,7 +10,7 @@ Minden mátrixszorzás egy ciklus, amibe breakpointot tehetsz. A chatben van egy
 
 ![A nanoGPT-ps chatablak: a modell fejléce, majd egy Shakespeare-stílusú folytatás](docs/chat.png)
 
-*A chatablak: a modell fejléce, majd egy Shakespeare-stílusú folytatás.*
+
 
 ## Mire jó
 
